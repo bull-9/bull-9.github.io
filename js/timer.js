@@ -76,7 +76,7 @@ function changeTimerState() {
         else {
             var nowTime = Date.now();
             var elapsedTime = nowTime - stopTime;
-            startTime = new Date(startTime + elapsedTime);
+            startTime = new Date(startTime + elapsedTime).getTime();
         }
         
         //計測開始
