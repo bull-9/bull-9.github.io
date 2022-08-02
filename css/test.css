@@ -1,0 +1,22 @@
+table {
+  border-collapse: collapse;
+}
+th, td {
+  border: solid 1px black;
+}
+
+
+.cs_flexbox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cs_flexbox .item {
+  text-align: center;
+  padding: 2px;
+  margin: 0px;
+  position: relative;
+  line-height: 140%;
+  font-size: 12px;
+}
