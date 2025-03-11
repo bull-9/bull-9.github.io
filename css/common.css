@@ -9,7 +9,7 @@ th, td {
   overflow: auto;
   width: auto;
   height: auto;
-  max-height: 500px;
+  max-height: calc(100dvh - 30px);
 }
 
 td > span {
