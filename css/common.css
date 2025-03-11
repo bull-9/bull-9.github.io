@@ -14,14 +14,28 @@ th, td {
 .monster-detail-table {
   margin-left: 20px;
 }
+.attribute-list {
+  width: 745px;
+}
+.attribute-list > tr > td {
+  padding: 5px 0;
+}
 td > span {
   display: flex;
   justify-content: space-evenly;
 }
 
 @media screen and (orientation: portrait) {
+  .flex-attribute-wrap, .flex-view {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
   .scrollable-list {
     max-height: calc(100dvh - 535px);
+  }
+  .attribute-list {
+    max-width: calc(100dvw - 16px);
   }
   .detail-table-wrap {
     display: flex;
@@ -35,8 +49,9 @@ td > span {
 }
 
 @media screen and (orientation: landscape) {
-  .scrollable-list {
-    max-width: calc(100dvw - 410px);
+  .attribute-list, .scrollable-list {
+    max-width: calc(100dvw - 510px);
+    max-width: calc(100dvw - 510px);
   }
   .flex-view {
     display: flex;
