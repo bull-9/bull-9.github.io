@@ -11,7 +11,9 @@ th, td {
   height: auto;
   max-height: calc(100dvh - 30px);
 }
-
+.monster_detail_table {
+  margin-left: 20px;
+}
 td > span {
   display: flex;
   justify-content: space-evenly;
@@ -19,7 +21,11 @@ td > span {
 
 @media screen and (orientation: portrait) {
   .scrollable-list {
-    max-height: calc(100dvh - 510px);
+    max-height: calc(100dvh - 535px);
+  }
+  .monster_detail_table {
+    margin-top: 20px;
+    margin-left: 0;
   }
 }
 
