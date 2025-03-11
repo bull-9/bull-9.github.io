@@ -8,9 +8,9 @@ function initMonsterView() {
 
 // フィルターアイコン初期化
 function initFilterTable() {
-  // 属性アイコン
   let table = document.getElementById("attribute_list");
   let tr = document.createElement("tr");
+  // 属性アイコン
   Object.keys(attribute_data.attributes).map(key => {
     let td = document.createElement("td");
     let span = document.createElement("span");
@@ -30,25 +30,57 @@ function initFilterTable() {
   img.src = "../../src/img/icon/clear.png";
   img.style.width = "40px"
   span.appendChild(img);
+  td.appendChild(span);
   td.dataset.type = 0;
   td.dataset.isAttribute = false;
-  td.appendChild(span);
   tr.appendChild(td);
+  table.appendChild(tr);
 
+  // 歴戦の証アイコン
+  tr = document.createElement("tr");
+  for(let i = 0; i < 3; i++) {
+    let td = document.createElement("td");
+    let span = document.createElement("span");
+    let text;
+    switch(i) {
+      case 0:
+        text = "証Ⅰ";
+        break;
+      case 1:
+        text = "証Ⅱ";
+        break;
+      case 2:
+        text = "証Ⅲ";
+        break;
+    }
+    span.textContent = text;
+    td.appendChild(span);
+    td.dataset.type = i+1;
+    td.dataset.isAttribute = false;
+    td.colSpan = 2;
+    tr.appendChild(td);
+  }
   table.appendChild(tr);
 
   table.addEventListener("click", (event) => {
+    let td;
     switch (event.target.nodeName) {
       case "TD":
-        setMonsterList(Number(event.target.dataset.type), event.target.dataset.isAttribute);
-        break;
-      case "IMG":
-        setMonsterList(Number(event.target.parentElement.parentElement.dataset.type), event.target.parentElement.parentElement.dataset.isAttribute);
+        td = event.target;
         break;
       case "SPAN":
-        setMonsterList(Number(event.target.parentElement.dataset.type), event.target.parentElement.dataset.isAttribute);
-      break;
+        td = event.target.parentElement;
+        break;
+      case "IMG":
+        td = event.target.parentElement.parentElement;
+        break;
     }
+    setMonsterList(Number(td.dataset.type), td.dataset.isAttribute === "true");
+
+    if (td.dataset.type === "0") {
+      td = null;
+    }
+    setTableBackgroundColor(table, td);
   });
 }
 
@@ -94,19 +126,47 @@ function setMonsterList(filter_val = 0, is_attribute = false) {
   addEventListenerForMonsterList();
 }
 
+// 選択中のセル背景色変更
+function setTableBackgroundColor(table, td) {
+  let tr = table.querySelectorAll("tr");
+  for(let i = 0; i < tr.length; i++) {
+    let td = tr[i].querySelectorAll("td");
+    for (let j = 0; j < td.length; j++) {
+      td[j].style.backgroundColor = "#ffffff";
+    }
+  }
+  td.style.backgroundColor = "#70f0f0";
+}
+
 // モンスターアイコンクリック時のメソッドセット
 function addEventListenerForMonsterList() {
   let table = document.getElementById("monster_list");
   table.addEventListener("click", (event) => {
+    let td;
     switch (event.target.nodeName) {
       case "TD":
         setMonsterDetails(event.target);
+        td = event.target;
         break;
       case "IMG":
         setMonsterDetails(event.target.parentElement);
+        td = event.target.parentElement;
         break;
     }
+    setMonsterIconColor(table, td);
   });
+}
+
+// 選択中のモンスターアイコン色変更
+function setMonsterIconColor(table, td) {
+  let tr = table.querySelectorAll("tr");
+  for(let i = 0; i < tr.length; i++) {
+    let td = tr[i].querySelectorAll("td");
+    for (let j = 0; j < td.length; j++) {
+      td[j].firstChild.style.filter = "brightness(1)";
+    }
+  }
+  td.firstChild.style.filter = "brightness(1.5)";
 }
 
 // モンスター詳細リセット（非表示）
