@@ -67,23 +67,25 @@ function setMonsterDetails(elem) {
 
   let monster_detail = monster_data[elem.dataset.id];
 
+  // モンスター画像
   let tr = document.createElement("tr");
   let td = document.createElement("td");
   let img = document.createElement("img");
   img.src = monster_detail.img_path;
-  img.style.width = "346px";
+  img.style.width = "446px";
   td.appendChild(img);
   tr.appendChild(td);
   table.appendChild(tr);
 
+  // 弱点属性
   tr = document.createElement("tr");
   tr.appendChild(getMonsterWeakAttributes(monster_detail));
   table.appendChild(tr);
-
+  // 状態異常
   tr = document.createElement("tr");
   tr.appendChild(getMonsterWeakStatusEffects(monster_detail));
   table.appendChild(tr);
-
+  // 罠・アイテム
   tr = document.createElement("tr");
   tr.appendChild(getMonsterWeakTraps(monster_detail));
   table.appendChild(tr);
@@ -96,7 +98,7 @@ function getMonsterWeakAttributes(monster_detail) {
   monster_detail.attributes.forEach(attribute => {
     let img = document.createElement("img");
     img.src = attribute_data.attributes[attribute].img_path;
-    img.style.width = "46px";
+    img.style.width = "66px";
     span.appendChild(img);
   });
   td.appendChild(span);
@@ -110,7 +112,7 @@ function getMonsterWeakStatusEffects(monster_detail) {
   monster_detail.status_effects.forEach(status_effect => {
     let img = document.createElement("img");
     img.src = attribute_data.status_effects[status_effect].img_path;
-    img.style.width = "46px";
+    img.style.width = "66px";
     span.appendChild(img);
   });
   td.appendChild(span);
@@ -124,7 +126,7 @@ function getMonsterWeakTraps(monster_detail) {
   monster_detail.traps.forEach(trap_id => {
     let img = document.createElement("img");
     img.src = attribute_data.traps[trap_id].img_path;
-    img.style.width = "46px";
+    img.style.width = "66px";
     span.appendChild(img);
   });
   td.appendChild(span);
