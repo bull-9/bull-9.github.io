@@ -9,7 +9,7 @@ th, td {
   overflow: auto;
   width: auto;
   height: auto;
-  max-height: calc(100dvh - 30px);
+  max-height: calc(100dvh - 130px);
 }
 .monster-detail-table {
   margin-left: 20px;
@@ -32,7 +32,7 @@ td > span {
     justify-content: center;
   }
   .scrollable-list {
-    max-height: calc(100dvh - 535px);
+    max-height: calc(100dvh - 785px);
   }
   .attribute-list {
     max-width: calc(100dvw - 16px);
@@ -50,7 +50,6 @@ td > span {
 
 @media screen and (orientation: landscape) {
   .attribute-list, .scrollable-list {
-    max-width: calc(100dvw - 510px);
     max-width: calc(100dvw - 510px);
   }
   .flex-view {
