@@ -5,18 +5,18 @@ th, td {
   border: solid 1px black;
 }
 
-
-.cs_flexbox {
+.flex-view {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  align-items: start;
+}
+.scrollable-list {
+  overflow-y: auto;
+  height: auto;
+  max-height: 500px;
 }
 
-.cs_flexbox .item {
-  text-align: center;
-  padding: 2px;
-  margin: 0px;
-  position: relative;
-  line-height: 140%;
-  font-size: 12px;
+td > span {
+  display: flex;
+  justify-content: space-evenly;
 }
