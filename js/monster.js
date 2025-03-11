@@ -22,7 +22,7 @@ function resetMonsterList() {
     let td = document.createElement("td");
     td.dataset.id = key;
     td.dataset.symbol_level = monster_data[key].symbol_level;
-    td.style.height = "96px";
+    td.style.height = "146px";
     let img = document.createElement("img");
     img.src = monster_data[key].img_path;
     img.style.height = "100%";
@@ -71,7 +71,7 @@ function setMonsterDetails(elem) {
   let td = document.createElement("td");
   let img = document.createElement("img");
   img.src = monster_detail.img_path;
-  img.style.width = "200px";
+  img.style.width = "346px";
   td.appendChild(img);
   tr.appendChild(td);
   table.appendChild(tr);
@@ -96,7 +96,7 @@ function getMonsterWeakAttributes(monster_detail) {
   monster_detail.attributes.forEach(attribute => {
     let img = document.createElement("img");
     img.src = attribute_data.attributes[attribute].img_path;
-    img.style.width = "30px";
+    img.style.width = "46px";
     span.appendChild(img);
   });
   td.appendChild(span);
@@ -110,7 +110,7 @@ function getMonsterWeakStatusEffects(monster_detail) {
   monster_detail.status_effects.forEach(status_effect => {
     let img = document.createElement("img");
     img.src = attribute_data.status_effects[status_effect].img_path;
-    img.style.width = "30px";
+    img.style.width = "46px";
     span.appendChild(img);
   });
   td.appendChild(span);
@@ -124,8 +124,7 @@ function getMonsterWeakTraps(monster_detail) {
   monster_detail.traps.forEach(trap_id => {
     let img = document.createElement("img");
     img.src = attribute_data.traps[trap_id].img_path;
-    img.style.width = "30px";
-    img.style.margin = "0 10px";
+    img.style.width = "46px";
     span.appendChild(img);
   });
   td.appendChild(span);

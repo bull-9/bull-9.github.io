@@ -5,13 +5,9 @@ th, td {
   border: solid 1px black;
 }
 
-.flex-view {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: start;
-}
 .scrollable-list {
-  overflow-y: auto;
+  overflow: auto;
+  width: auto;
   height: auto;
   max-height: 500px;
 }
@@ -19,4 +15,21 @@ th, td {
 td > span {
   display: flex;
   justify-content: space-evenly;
+}
+
+@media screen and (orientation: portrait) {
+  .scrollable-list {
+    max-height: calc(100dvh - 510px);
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .scrollable-list {
+    max-width: calc(100dvw - 410px);
+  }
+  .flex-view {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+  }
 }
