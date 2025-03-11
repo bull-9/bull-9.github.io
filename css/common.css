@@ -11,7 +11,7 @@ th, td {
   height: auto;
   max-height: calc(100dvh - 30px);
 }
-.monster_detail_table {
+.monster-detail-table {
   margin-left: 20px;
 }
 td > span {
@@ -23,7 +23,12 @@ td > span {
   .scrollable-list {
     max-height: calc(100dvh - 535px);
   }
-  .monster_detail_table {
+  .detail-table-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .monster-detail-table {
     margin-top: 20px;
     margin-left: 0;
   }
