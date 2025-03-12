@@ -26,10 +26,12 @@ function initFilterTable() {
   // バツアイコン
   let td = document.createElement("td");
   let span = document.createElement("span");
-  let img = document.createElement("img");
-  img.src = "../../src/img/icon/clear.png";
-  img.style.width = "40px"
-  span.appendChild(img);
+  let i = document.createElement("i");
+  i.classList.add("fa-solid"); 
+  i.classList.add("fa-xmark"); 
+  i.style.color = "red";
+  i.style.fontSize = "46px";
+  span.appendChild(i);
   td.appendChild(span);
   td.dataset.type = 0;
   td.dataset.isAttribute = false;
@@ -230,6 +232,14 @@ function getMonsterWeakAttributes(monster_detail) {
       span.appendChild(img);
     })
   });
+  if (!monster_detail.attributes.length) {
+    let i = document.createElement("i");
+    i.classList.add("fa-solid"); 
+    i.classList.add("fa-xmark"); 
+    i.style.color = "red";
+    i.style.fontSize = "66px";
+    span.appendChild(i);
+  }
   td.appendChild(span);
   return td;
 }
