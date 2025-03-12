@@ -23,6 +23,7 @@ th, td {
 td > span {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
 }
 
 @media screen and (orientation: portrait) {

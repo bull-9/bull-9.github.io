@@ -2,7 +2,7 @@ window.monster_data = {
   101:{
       "name": "チャタカブラ",
       "img_path": "../../src/img/monster/101.jpg",
-      "attributes": [3,4],
+      "attributes": [[3],[4]],
       "status_effects": [1,2,3,4,5,6],
       "traps": [1,2,3],
       "symbol_level": 1
@@ -10,7 +10,7 @@ window.monster_data = {
   102:{
       "name": "ケマトリス",
       "img_path": "../../src/img/monster/102.jpg",
-      "attributes": [2,4],
+      "attributes": [[2],[4]],
       "status_effects": [1,2,3,4,5,6],
       "traps": [1,2,3],
       "symbol_level": 1
@@ -18,7 +18,7 @@ window.monster_data = {
   103:{
       "name": "ラバラ・バリナ",
       "img_path": "../../src/img/monster/103.jpg",
-      "attributes": [1,3],
+      "attributes": [[1],[3]],
       "status_effects": [1,2,4,5,6],
       "traps": [1,2,3],
       "symbol_level": 1
@@ -26,7 +26,7 @@ window.monster_data = {
   104:{
       "name": "ババコンガ",
       "img_path": "../../src/img/monster/104.jpg",
-      "attributes": [1,4],
+      "attributes": [[1],[4]],
       "status_effects": [1,2,3,4,5,6],
       "traps": [1,2,3],
       "symbol_level": 1
@@ -34,7 +34,7 @@ window.monster_data = {
   105:{
       "name": "バーラハーラ",
       "img_path": "../../src/img/monster/105.jpg",
-      "attributes": [1,3],
+      "attributes": [[3],[1]],
       "status_effects": [1,2,3,4,5,6],
       "traps": [1,2,3,4],
       "symbol_level": 1
@@ -42,7 +42,7 @@ window.monster_data = {
   106:{
       "name": "ププロポル",
       "img_path": "../../src/img/monster/106.jpg",
-      "attributes": [2],
+      "attributes": [[2]],
       "status_effects": [2,3,4,5,6],
       "traps": [1,2,3],
       "symbol_level": 1
@@ -50,7 +50,7 @@ window.monster_data = {
   107:{
       "name": "イャンクック",
       "img_path": "../../src/img/monster/107.jpg",
-      "attributes": [3,4],
+      "attributes": [[4],[3]],
       "status_effects": [1,2,3,4,5,6],
       "traps": [1,2,3,4],
       "symbol_level": 1
@@ -58,7 +58,7 @@ window.monster_data = {
   108:{
       "name": "ネルスキュラ",
       "img_path": "../../src/img/monster/108.jpg",
-      "attributes": [1],
+      "attributes": [[1]],
       "status_effects": [1,2,3,5,6],
       "traps": [1,2,3],
       "symbol_level": 1
@@ -66,7 +66,7 @@ window.monster_data = {
   109:{
       "name": "リオレイア",
       "img_path": "../../src/img/monster/109.jpg",
-      "attributes": [3,5],
+      "attributes": [[5],[3]],
       "status_effects": [2,3,4,5,6],
       "traps": [1,2,3],
       "symbol_level": 1
@@ -74,7 +74,7 @@ window.monster_data = {
   110:{
       "name": "ヒラバミ",
       "img_path": "../../src/img/monster/110.jpg",
-      "attributes": [1,3],
+      "attributes": [[1],[3]],
       "status_effects": [1,2,3,4,5,6],
       "traps": [1,2,3],
       "symbol_level": 1
@@ -82,7 +82,7 @@ window.monster_data = {
   111:{
       "name": "ゲリョス",
       "img_path": "../../src/img/monster/111.jpg",
-      "attributes": [1,4],
+      "attributes": [[1],[4]],
       "status_effects": [2,3,4,5,6],
       "traps": [2],
       "symbol_level": 1
@@ -90,7 +90,7 @@ window.monster_data = {
   201:{
       "name": "ドシャグマ",
       "img_path": "../../src/img/monster/201.jpg",
-      "attributes": [1,3],
+      "attributes": [[1],[3]],
       "status_effects": [1,2,3,4,5,6],
       "traps": [1,2,3],
       "symbol_level": 2
@@ -98,7 +98,7 @@ window.monster_data = {
   202:{
       "name": "アジャラカン",
       "img_path": "../../src/img/monster/202.jpg",
-      "attributes": [2,4],
+      "attributes": [[2],[4]],
       "status_effects": [1,2,3,4,5,6],
       "traps": [1,2,3],
       "symbol_level": 2
@@ -106,7 +106,7 @@ window.monster_data = {
   203:{
       "name": "シーウー",
       "img_path": "../../src/img/monster/203.jpg",
-      "attributes": [4],
+      "attributes": [[4]],
       "status_effects": [1,2,3,5,6],
       "traps": [1,2],
       "symbol_level": 2
@@ -114,7 +114,7 @@ window.monster_data = {
   204:{
       "name": "護竜ドシャグマ",
       "img_path": "../../src/img/monster/204.jpg",
-      "attributes": [1,3,4,5],
+      "attributes": [[1,5],[3,4]],
       "status_effects": [1,2,3,4,5],
       "traps": [1,2,3],
       "symbol_level": 2
@@ -122,7 +122,7 @@ window.monster_data = {
   205:{
       "name": "護竜リオレウス",
       "img_path": "../../src/img/monster/205.jpg",
-      "attributes": [3,5],
+      "attributes": [[5],[3]],
       "status_effects": [2,3,4,5],
       "traps": [1,2,3],
       "symbol_level": 2
@@ -130,7 +130,7 @@ window.monster_data = {
   206:{
       "name": "護竜オドガロン亜種",
       "img_path": "../../src/img/monster/206.jpg",
-      "attributes": [1,2,3,4],
+      "attributes": [[2],[1,3,4]],
       "status_effects": [1,2,3,4,5],
       "traps": [1,2,3],
       "symbol_level": 2
@@ -138,7 +138,7 @@ window.monster_data = {
   207:{
       "name": "護竜アンジャナフ亜種",
       "img_path": "../../src/img/monster/207.jpg",
-      "attributes": [2,4,5],
+      "attributes": [[4],[2,5]],
       "status_effects": [1,2,3,4,5],
       "traps": [1,2,3],
       "symbol_level": 2
@@ -146,7 +146,7 @@ window.monster_data = {
   208:{
       "name": "リオレウス",
       "img_path": "../../src/img/monster/208.jpg",
-      "attributes": [3,5],
+      "attributes": [[5],[3]],
       "status_effects": [2,3,4,5,6],
       "traps": [1,2,3],
       "symbol_level": 2
@@ -154,7 +154,7 @@ window.monster_data = {
   209:{
       "name": "ドドブランゴ",
       "img_path": "../../src/img/monster/209.jpg",
-      "attributes": [1,3],
+      "attributes": [[1],[3]],
       "status_effects": [1,2,3,4,5,6],
       "traps": [1,2,3],
       "symbol_level": 2
@@ -162,7 +162,7 @@ window.monster_data = {
   210:{
       "name": "グラビモス",
       "img_path": "../../src/img/monster/210.jpg",
-      "attributes": [2,5],
+      "attributes": [[2],[5]],
       "status_effects": [1,2,3,4,5,6],
       "traps": [1,2,3],
       "symbol_level": 2
@@ -170,7 +170,7 @@ window.monster_data = {
   301:{
       "name": "ゴア・マガラ",
       "img_path": "../../src/img/monster/301.jpg",
-      "attributes": [1,3,5],
+      "attributes": [[1],[3,5]],
       "status_effects": [5,6],
       "traps": [1,2],
       "symbol_level": 3
@@ -178,7 +178,7 @@ window.monster_data = {
   302:{
       "name": "レ・ダウ",
       "img_path": "../../src/img/monster/302.jpg",
-      "attributes": [2,4],
+      "attributes": [[4],[2]],
       "status_effects": [1,4,5,6],
       "traps": [2,3],
       "symbol_level": 3
@@ -186,7 +186,7 @@ window.monster_data = {
   303:{
       "name": "ウズ・トゥナ",
       "img_path": "../../src/img/monster/303.jpg",
-      "attributes": [1,3],
+      "attributes": [[3],[1]],
       "status_effects": [1,3,4,5,6],
       "traps": [1,2,3],
       "symbol_level": 3
@@ -194,7 +194,7 @@ window.monster_data = {
   304:{
       "name": "ヌ・エグドラ",
       "img_path": "../../src/img/monster/304.jpg",
-      "attributes": [2,5],
+      "attributes": [[2],[5]],
       "status_effects": [1,2,4,6],
       "traps": [1,2],
       "symbol_level": 3
@@ -202,7 +202,7 @@ window.monster_data = {
   305:{
       "name": "ジン・ダハド",
       "img_path": "../../src/img/monster/305.jpg",
-      "attributes": [1,3],
+      "attributes": [[1],[3]],
       "status_effects": [5,6],
       "traps": [1,3],
       "symbol_level": 3

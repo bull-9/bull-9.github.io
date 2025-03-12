@@ -98,7 +98,9 @@ function setMonsterList(filter_val = 0, is_attribute = false) {
       tr = document.createElement("tr");
     }
 
-    if (filter_val !== 0 && ((is_attribute && !monster_data[key].attributes.includes(filter_val)) || (!is_attribute && monster_data[key].symbol_level !== filter_val))) {
+    let is_include = 0;
+    monster_data[key].attributes.forEach((attributes => {if(attributes.includes(filter_val)) {is_include++;}}));
+    if (filter_val !== 0 && ((is_attribute && !is_include) || (!is_attribute && monster_data[key].symbol_level !== filter_val))) {
       return;
     }
 
@@ -213,11 +215,20 @@ function setMonsterDetails(elem) {
 function getMonsterWeakAttributes(monster_detail) {
   let td = document.createElement("td");
   let span = document.createElement("span");
-  monster_detail.attributes.forEach(attribute => {
-    let img = document.createElement("img");
-    img.src = attribute_data.attributes[attribute].img_path;
-    img.style.width = "66px";
-    span.appendChild(img);
+  monster_detail.attributes.forEach((attributes, index) => {
+    if (index) {
+      let i = document.createElement("i");
+      i.classList.add("fa-solid"); 
+      i.classList.add("fa-chevron-right"); 
+      i.style.fontSize = "30px";
+      span.appendChild(i);
+    }
+    attributes.forEach(attribute => {
+      let img = document.createElement("img");
+      img.src = attribute_data.attributes[attribute].img_path;
+      img.style.width = "66px";
+      span.appendChild(img);
+    })
   });
   td.appendChild(span);
   return td;
