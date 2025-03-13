@@ -7,7 +7,7 @@ th, td {
 
 .scrollable-list {
   overflow: auto;
-  width: auto;
+  width: 745px;
   height: auto;
   max-height: calc(100dvh - 130px);
 }
@@ -15,10 +15,11 @@ th, td {
   margin-left: 20px;
 }
 .attribute-list {
+  table-layout: fixed;
   width: 745px;
 }
 .attribute-list > tr > td {
-  padding: 5px 0;
+  height: 57px;
 }
 td > span {
   display: flex;

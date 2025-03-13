@@ -1,3 +1,10 @@
+var current_filter = {
+  attribute: 0,
+  symbol_level: 0,
+  weakest: 0,
+  is_filtering: false
+};
+
 window.onload = initMonsterView();
 
 function initMonsterView() {
@@ -10,39 +17,27 @@ function initMonsterView() {
 function initFilterTable() {
   let table = document.getElementById("attribute_list");
   let tr = document.createElement("tr");
-  // 属性アイコン
+  let td, span;
+// 属性アイコン
   Object.keys(attribute_data.attributes).map(key => {
-    let td = document.createElement("td");
-    let span = document.createElement("span");
+    td = document.createElement("td");
+    span = document.createElement("span");
     let img = document.createElement("img");
     img.src = attribute_data.attributes[key].img_path;
     img.style.width = "46px"
     span.appendChild(img);
     td.dataset.type = key;
-    td.dataset.isAttribute = true;
+    td.dataset.category = "attribute";
     td.appendChild(span);
     tr.appendChild(td);
   });
-  // バツアイコン
-  let td = document.createElement("td");
-  let span = document.createElement("span");
-  let i = document.createElement("i");
-  i.classList.add("fa-solid"); 
-  i.classList.add("fa-xmark"); 
-  i.style.color = "red";
-  i.style.fontSize = "46px";
-  span.appendChild(i);
-  td.appendChild(span);
-  td.dataset.type = 0;
-  td.dataset.isAttribute = false;
-  tr.appendChild(td);
   table.appendChild(tr);
 
   // 歴戦の証アイコン
   tr = document.createElement("tr");
   for(let i = 0; i < 3; i++) {
-    let td = document.createElement("td");
-    let span = document.createElement("span");
+    td = document.createElement("td");
+    span = document.createElement("span");
     let text;
     switch(i) {
       case 0:
@@ -58,10 +53,30 @@ function initFilterTable() {
     span.textContent = text;
     td.appendChild(span);
     td.dataset.type = i+1;
-    td.dataset.isAttribute = false;
-    td.colSpan = 2;
+    td.dataset.category = "symbol_level";
     tr.appendChild(td);
   }
+  // 最適属性のみ
+  td = document.createElement("td");
+  span = document.createElement("span");
+  span.textContent = "最適属性のみ";
+  td.appendChild(span);
+  td.dataset.type = 1;
+  td.dataset.category = "weakest";
+  tr.appendChild(td);
+  // バツアイコン
+  td = document.createElement("td");
+  span = document.createElement("span");
+  let i = document.createElement("i");
+  i.classList.add("fa-solid"); 
+  i.classList.add("fa-xmark"); 
+  i.style.color = "red";
+  i.style.fontSize = "46px";
+  span.appendChild(i);
+  td.appendChild(span);
+  td.dataset.type = 0;
+  td.dataset.category = "";
+  tr.appendChild(td);
   table.appendChild(tr);
 
   table.addEventListener("click", (event) => {
@@ -78,17 +93,56 @@ function initFilterTable() {
         td = event.target.parentElement.parentElement;
         break;
     }
-    setMonsterList(Number(td.dataset.type), td.dataset.isAttribute === "true");
 
     if (td.dataset.type === "0") {
-      td = null;
+      resetCurrentFilter();
+    } else {
+      setCurrentFilter(td.dataset.category, Number(td.dataset.type))
     }
-    setTableBackgroundColor(table, td);
+    setMonsterList();
+    setTableBackgroundColor(table);
   });
 }
 
+// フィルターセット
+function setCurrentFilter(category, type) {
+  type = (current_filter[category] !== type) ? type : 0;
+  switch (category) {
+    case "attribute":
+      if (type === 0) { current_filter.weakest = 0; }
+      break;
+    case "weakest":
+      if (type === 1 && !current_filter.attribute) { type = 0; }
+  }
+  current_filter[category] = type;
+}
+// フィルタリセット
+function resetCurrentFilter() {
+  current_filter = {
+    attribute: 0,
+    symbol_level: 0,
+    weakest: 0,
+  };
+}
+
+// 対象モンスターがフィルター対象かチェック
+function isIgnoreMonsterData(monster_data) {
+  let is_target = true;
+  if (current_filter.weakest && monster_data.attributes.length) {
+    is_target = monster_data.attributes[0].includes(current_filter.attribute);
+  } else if (current_filter.attribute) {
+    is_target = false;
+    monster_data.attributes.forEach((attributes => {if(attributes.includes(current_filter.attribute)) {is_target = true;}}));
+  }
+  if(current_filter.symbol_level) {
+    is_target = is_target && (monster_data.symbol_level === current_filter.symbol_level);
+  }
+
+  return !is_target;
+}
+
 // モンスターリストにコンテンツをセット
-function setMonsterList(filter_val = 0, is_attribute = false) {
+function setMonsterList() {
   let table = document.getElementById("monster_list");
   while(table.firstChild){
     table.removeChild(table.firstChild);
@@ -97,16 +151,13 @@ function setMonsterList(filter_val = 0, is_attribute = false) {
   let col_cnt = 0;
   let tr;
   Object.keys(monster_data).map(key => {
-    if (!(col_cnt % 5)) {
-      tr = document.createElement("tr");
-    }
-
-    let is_include = 0;
-    monster_data[key].attributes.forEach((attributes => {if(attributes.includes(filter_val)) {is_include++;}}));
-    if (filter_val !== 0 && ((is_attribute && !is_include) || (!is_attribute && monster_data[key].symbol_level !== filter_val))) {
+    if (isIgnoreMonsterData(monster_data[key])) {
       return;
     }
 
+    if (!(col_cnt % 5)) {
+      tr = document.createElement("tr");
+    }
     let td = document.createElement("td");
     td.dataset.id = key;
     td.dataset.symbol_level = monster_data[key].symbol_level;
@@ -132,15 +183,21 @@ function setMonsterList(filter_val = 0, is_attribute = false) {
 }
 
 // 選択中のセル背景色変更
-function setTableBackgroundColor(table, td) {
+function setTableBackgroundColor(table) {
+  let target_elems = [];
   let tr = table.querySelectorAll("tr");
   for(let i = 0; i < tr.length; i++) {
     let td = tr[i].querySelectorAll("td");
     for (let j = 0; j < td.length; j++) {
       td[j].style.backgroundColor = "#ffffff";
+      if (current_filter[td[j].dataset.category] === Number(td[j].dataset.type)) {
+        target_elems.push(td[j]);
+      }
     }
   }
-  td.style.backgroundColor = "#70f0f0";
+  target_elems.forEach(elem => {
+    elem.style.backgroundColor = "#70f0f0";
+  })
 }
 
 // モンスターアイコンクリック時のメソッドセット
