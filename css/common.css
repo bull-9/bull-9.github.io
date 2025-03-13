@@ -7,7 +7,7 @@ th, td {
 
 .scrollable-list {
   overflow: auto;
-  width: 745px;
+  width: 765px;
   height: auto;
   max-height: calc(100dvh - 130px);
 }
