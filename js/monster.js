@@ -1,11 +1,11 @@
-var current_filter = {
+let current_filter = {
   attribute: 0,
   symbol_level: 0,
   weakest: 0,
   is_filtering: false
 };
-var current_detail_table_num = 0;
-var detail_table_elems = []
+let detail_table_elems = []
+let is_event_already_add = false;
 
 window.onload = initMonsterView();
 
@@ -204,6 +204,11 @@ function setTableBackgroundColor(table) {
 
 // モンスターアイコンクリック時のメソッドセット
 function addEventListenerForMonsterList() {
+  if (is_event_already_add) {
+    return;
+  }
+  is_event_already_add = true;
+
   let table = document.getElementById("monster_list");
   table.addEventListener("click", (event) => {
     let td;
@@ -258,13 +263,14 @@ function setMonsterDetails(elem) {
   let select_detail_index = 0;
   detail_table_elems.forEach((elems, index) => {
     if (elems.is_selected || select_detail_index) { return; }
-    elems.is_selected = true;
     select_detail_index = index;
+    elems.is_selected = true;
   })
   if (!select_detail_index) {
     select_detail_index = detail_table_elems.length - 1;
-    detail_table_elems[select_detail_index].is_selected = true;
   }
+  detail_table_elems[select_detail_index].is_selected = true;
+
   let table = detail_table_elems[select_detail_index].table_elem;
   let icon = detail_table_elems[select_detail_index].icon_elem;
   icon.style.display = "none";
