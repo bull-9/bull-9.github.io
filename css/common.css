@@ -26,12 +26,22 @@ td > span {
   justify-content: space-evenly;
   align-items: center;
 }
+.fa-plus {
+  margin: 70px;
+  font-size: 50px;
+}
+.flex-attribute-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+}
 
 @media screen and (orientation: portrait) {
-  .flex-attribute-wrap, .flex-view {
+  .flex-view {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    width: 765px;
   }
   .scrollable-list {
     max-height: calc(100dvh - 785px);
@@ -43,6 +53,7 @@ td > span {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
   }
   .monster-detail-table {
     margin-top: 20px;

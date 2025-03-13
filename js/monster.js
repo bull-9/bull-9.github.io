@@ -4,6 +4,8 @@ var current_filter = {
   weakest: 0,
   is_filtering: false
 };
+var current_detail_table_num = 0;
+var detail_table_elems = []
 
 window.onload = initMonsterView();
 
@@ -233,14 +235,41 @@ function setMonsterIconColor(table, td) {
 
 // モンスター詳細リセット（非表示）
 function resetMonsterDetails() {
-  let table = document.getElementById("monster_detail");
+  let table = document.getElementById("monster_detail_1");
   table.style.display = "none";
+  table.nextElementSibling.style.display = "inline-block";
+  detail_table_elems[1] = {
+    is_selected: false,
+    table_elem: table,
+    icon_elem: table.nextElementSibling
+  }
+  table = document.getElementById("monster_detail_2");
+  table.style.display = "none";
+  table.nextElementSibling.style.display = "inline-block";
+  detail_table_elems[2] = {
+    is_selected: false,
+    table_elem: table,
+    icon_elem: table.nextElementSibling
+  }
 }
 
 // 対象モンスター情報表示
 function setMonsterDetails(elem) {
-  let table = document.getElementById("monster_detail");
+  let select_detail_index = 0;
+  detail_table_elems.forEach((elems, index) => {
+    if (elems.is_selected || select_detail_index) { return; }
+    elems.is_selected = true;
+    select_detail_index = index;
+  })
+  if (!select_detail_index) {
+    select_detail_index = detail_table_elems.length - 1;
+    detail_table_elems[select_detail_index].is_selected = true;
+  }
+  let table = detail_table_elems[select_detail_index].table_elem;
+  let icon = detail_table_elems[select_detail_index].icon_elem;
+  icon.style.display = "none";
   table.style.display = "table";
+
   while(table.firstChild){
     table.removeChild(table.firstChild);
   }
@@ -250,10 +279,28 @@ function setMonsterDetails(elem) {
   // モンスター画像
   let tr = document.createElement("tr");
   let td = document.createElement("td");
-  let img = document.createElement("img");
-  img.src = monster_detail.img_path;
-  img.style.width = "446px";
-  td.appendChild(img);
+  td.style.display = "flex";
+  td.style.justifyContent = "end";
+  td.style.alignItems = "start";
+  td.style.height = "296px";
+  td.style.aspectRatio = 1;
+  td.style.background = `url(${monster_detail.img_path}) no-repeat center/cover`;
+  // バツアイコン
+  let i = document.createElement("i");
+  i.classList.add("fa-solid");
+  i.classList.add("fa-xmark");
+  i.style.borderRadius = "5px";
+  i.style.padding = "0 6.25px";
+  i.style.margin = "5px";
+  i.style.fontSize = "50px";
+  i.style.color = "red";
+  i.style.backgroundColor = "white";
+  i.addEventListener('click', () => {
+    table.style.display = "none";
+    icon.style.display = "inline-block";
+    detail_table_elems[select_detail_index].is_selected = false;
+  })
+  td.appendChild(i);
   tr.appendChild(td);
   table.appendChild(tr);
 
@@ -280,13 +327,13 @@ function getMonsterWeakAttributes(monster_detail) {
       let i = document.createElement("i");
       i.classList.add("fa-solid"); 
       i.classList.add("fa-chevron-right"); 
-      i.style.fontSize = "30px";
+      i.style.fontSize = "20px";
       span.appendChild(i);
     }
     attributes.forEach(attribute => {
       let img = document.createElement("img");
       img.src = attribute_data.attributes[attribute].img_path;
-      img.style.width = "66px";
+      img.style.width = "46px";
       span.appendChild(img);
     })
   });
@@ -295,7 +342,7 @@ function getMonsterWeakAttributes(monster_detail) {
     i.classList.add("fa-solid"); 
     i.classList.add("fa-xmark"); 
     i.style.color = "red";
-    i.style.fontSize = "66px";
+    i.style.fontSize = "46px";
     span.appendChild(i);
   }
   td.appendChild(span);
@@ -309,7 +356,7 @@ function getMonsterWeakStatusEffects(monster_detail) {
   monster_detail.status_effects.forEach(status_effect => {
     let img = document.createElement("img");
     img.src = attribute_data.status_effects[status_effect].img_path;
-    img.style.width = "66px";
+    img.style.width = "46px";
     span.appendChild(img);
   });
   td.appendChild(span);
@@ -323,7 +370,7 @@ function getMonsterWeakTraps(monster_detail) {
   monster_detail.traps.forEach(trap_id => {
     let img = document.createElement("img");
     img.src = attribute_data.traps[trap_id].img_path;
-    img.style.width = "66px";
+    img.style.width = "46px";
     span.appendChild(img);
   });
   td.appendChild(span);
