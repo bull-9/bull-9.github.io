@@ -27,8 +27,13 @@ td > span {
   align-items: center;
 }
 .fa-plus {
-  margin: 70px;
-  font-size: 50px;
+  border: 1px solid;
+  padding: 185px 115px;
+  margin: 20px 10px 0 10px;
+  font-size: 75px;
+}
+.monster-detail-table {
+  margin: 20px 10px 0 10px;
 }
 .flex-attribute-wrap {
   display: flex;
@@ -54,10 +59,6 @@ td > span {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-  }
-  .monster-detail-table {
-    margin-top: 20px;
-    margin-left: 0;
   }
 }
 
