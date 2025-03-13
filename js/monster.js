@@ -73,6 +73,7 @@ function initFilterTable() {
       case "SPAN":
         td = event.target.parentElement;
         break;
+      case "I":
       case "IMG":
         td = event.target.parentElement.parentElement;
         break;
