@@ -44,7 +44,7 @@ td > span {
     width: 765px;
   }
   .scrollable-list {
-    max-height: calc(100dvh - 785px);
+    max-height: calc(100dvh - 605px);
   }
   .attribute-list {
     max-width: calc(100dvw - 16px);
