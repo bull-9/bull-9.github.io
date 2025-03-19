@@ -9,7 +9,7 @@ th, td {
   overflow: auto;
   width: 746px;
   height: auto;
-  max-height: calc(100dvh - 130px);
+  max-height: calc(100dvh - 150px);
 }
 .attribute-list {
   table-layout: fixed;
@@ -48,14 +48,14 @@ td > span {
 .flex-attribute-wrap {
   display: flex;
   flex-wrap: wrap;
-  justify-content: start;
+  margin-top: 20px;
 }
-
 .detail-table-wrap {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-end;
 }
+
 @media screen and (orientation: portrait) {
   .flex-attribute-wrap {
     justify-content: center;
@@ -67,7 +67,7 @@ td > span {
     width: auto;
   }
   .scrollable-list {
-    max-height: calc(100dvh - 605px);
+    max-height: calc(100dvh - 625px);
   }
   .attribute-list {
     max-width: calc(100dvw - 16px);
@@ -88,6 +88,6 @@ td > span {
     align-items: start;
   }
   .detail-table-wrap {
-    height: calc(100dvh - 130px);
+    height: calc(100dvh - 150px);
   }
 }
