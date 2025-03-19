@@ -5,7 +5,12 @@ window.monster_data = {
       "attributes": [[3],[4]],
       "status_effects": [1,2,3,4,5,6],
       "traps": [1,2,3],
-      "symbol_level": 1
+      "symbol_level": 1,
+      "details": {
+        "slash": [["頭","前脚"],["胴体","後脚","尻"]],
+        "blow": [["頭","前脚"],["胴体","後脚","尻"]],
+        "shoot": [["頭","前脚"],["胴体","後脚","尻"]],
+      }
   },
   102:{
       "name": "ケマトリス",
@@ -13,7 +18,12 @@ window.monster_data = {
       "attributes": [[2],[4]],
       "status_effects": [1,2,3,4,5,6],
       "traps": [1,2,3],
-      "symbol_level": 1
+      "symbol_level": 1,
+      "details": {
+        "slash": [["頭","尻尾"]],
+        "blow": [["頭","尻尾"]],
+        "shoot": [["頭","尻尾"]],
+      }
   },
   103:{
       "name": "ラバラ・バリナ",
@@ -21,7 +31,12 @@ window.monster_data = {
       "attributes": [[1],[3]],
       "status_effects": [1,2,4,5,6],
       "traps": [1,2,3],
-      "symbol_level": 1
+      "symbol_level": 1,
+      "details": {
+        "slash": [["頭","花弁","尻尾"],["爪","脚"]],
+        "blow": [["頭","花弁","尻尾"],["爪","脚"]],
+        "shoot": [["頭","花弁","尻尾"]],
+      }
   },
   104:{
       "name": "ババコンガ",
@@ -29,7 +44,12 @@ window.monster_data = {
       "attributes": [[1],[4]],
       "status_effects": [1,2,3,4,5,6],
       "traps": [1,2,3],
-      "symbol_level": 1
+      "symbol_level": 1,
+      "details": {
+        "slash": [["頭"],["前脚","尻尾"]],
+        "blow": [["頭"],["前脚","尻尾"]],
+        "shoot": [["頭"],["前脚","尻尾"]],
+      }
   },
   105:{
       "name": "バーラハーラ",
@@ -37,7 +57,12 @@ window.monster_data = {
       "attributes": [[3],[1]],
       "status_effects": [1,2,3,4,5,6],
       "traps": [1,2,3,4],
-      "symbol_level": 1
+      "symbol_level": 1,
+      "details": {
+        "slash": [["尻尾"],["頭","首"]],
+        "blow": [["頭","首"],["尻尾"]],
+        "shoot": [["頭","首","尻尾"]],
+      }
   },
   106:{
       "name": "ププロポル",
@@ -45,7 +70,12 @@ window.monster_data = {
       "attributes": [[2]],
       "status_effects": [2,3,4,5,6],
       "traps": [1,2,3],
-      "symbol_level": 1
+      "symbol_level": 1,
+      "details": {
+        "slash": [["頭","尻尾"],["背中"]],
+        "blow": [["頭","尻尾"],["背中"]],
+        "shoot": [["頭","尻尾"],["背中"]],
+      }
   },
   107:{
       "name": "イャンクック",
@@ -53,7 +83,12 @@ window.monster_data = {
       "attributes": [[4],[3]],
       "status_effects": [1,2,3,4,5,6],
       "traps": [1,2,3,4],
-      "symbol_level": 1
+      "symbol_level": 1,
+      "details": {
+        "slash": [["胴体","翼","尻尾"],["頭"]],
+        "blow": [["頭","胴体"],["尻尾"]],
+        "shoot": [["頭","胴体","翼"],["首","尻尾"]],
+      }
   },
   108:{
       "name": "ネルスキュラ",
@@ -61,7 +96,12 @@ window.monster_data = {
       "attributes": [[1]],
       "status_effects": [1,2,3,5,6],
       "traps": [1,2,3],
-      "symbol_level": 1
+      "symbol_level": 1,
+      "details": {
+        "slash": [["腹"],["頭","外套膜"]],
+        "blow": [["頭"],["腹","外套膜"]],
+        "shoot": [["毒棘"],["頭","腹"]],
+      }
   },
   109:{
       "name": "リオレイア",
@@ -69,7 +109,12 @@ window.monster_data = {
       "attributes": [[5],[3]],
       "status_effects": [2,3,4,5,6],
       "traps": [1,2,3],
-      "symbol_level": 1
+      "symbol_level": 1,
+      "details": {
+        "slash": [["頭"],["翼","尻尾"]],
+        "blow": [["頭"],["翼"]],
+        "shoot": [["頭"],["翼"]],
+      }
   },
   110:{
       "name": "ヒラバミ",
@@ -77,7 +122,12 @@ window.monster_data = {
       "attributes": [[1],[3]],
       "status_effects": [1,2,3,4,5,6],
       "traps": [1,2,3],
-      "symbol_level": 1
+      "symbol_level": 1,
+      "details": {
+        "slash": [["頭","首"],["前脚","後脚","尻尾"]],
+        "blow": [["頭","首"],["前脚","後脚","尻尾"]],
+        "shoot": [["頭","首","尻尾"]],
+      }
   },
   111:{
       "name": "ゲリョス",
@@ -85,7 +135,12 @@ window.monster_data = {
       "attributes": [[1],[4]],
       "status_effects": [2,3,4,5,6],
       "traps": [2],
-      "symbol_level": 1
+      "symbol_level": 1,
+      "details": {
+        "slash": [["尻尾"],["頭","首","胴体"]],
+        "blow": [["頭"]],
+        "shoot": [["尻尾"],["頭"]],
+      }
   },
   201:{
       "name": "ドシャグマ",
@@ -93,7 +148,12 @@ window.monster_data = {
       "attributes": [[1],[3]],
       "status_effects": [1,2,3,4,5,6],
       "traps": [1,2,3],
-      "symbol_level": 2
+      "symbol_level": 2,
+      "details": {
+        "slash": [["頭","前脚"]],
+        "blow": [["頭"],["前脚"]],
+        "shoot": [["頭"]],
+      }
   },
   202:{
       "name": "アジャラカン",
@@ -101,7 +161,12 @@ window.monster_data = {
       "attributes": [[2],[4]],
       "status_effects": [1,2,3,4,5,6],
       "traps": [1,2,3],
-      "symbol_level": 2
+      "symbol_level": 2,
+      "details": {
+        "slash": [["頭","前脚","尾先"]],
+        "blow": [["頭","前脚","尾先"]],
+        "shoot": [["前脚","尾先"]],
+      }
   },
   203:{
       "name": "シーウー",
@@ -109,7 +174,12 @@ window.monster_data = {
       "attributes": [[4]],
       "status_effects": [1,2,3,5,6],
       "traps": [1,2],
-      "symbol_level": 2
+      "symbol_level": 2,
+      "details": {
+        "slash": [["頭","腕"]],
+        "blow": [["頭","胴","腕"]],
+        "shoot": [["頭"]],
+      }
   },
   204:{
       "name": "護竜ドシャグマ",
@@ -117,7 +187,12 @@ window.monster_data = {
       "attributes": [[1,5],[3,4]],
       "status_effects": [1,2,3,4,5],
       "traps": [1,2,3],
-      "symbol_level": 2
+      "symbol_level": 2,
+      "details": {
+        "slash": [["頭","前脚"]],
+        "blow": [["頭","前脚"]],
+        "shoot": [["前脚"],["頭"]],
+      }
   },
   205:{
       "name": "護竜リオレウス",
@@ -125,7 +200,12 @@ window.monster_data = {
       "attributes": [[5],[3]],
       "status_effects": [2,3,4,5],
       "traps": [1,2,3],
-      "symbol_level": 2
+      "symbol_level": 2,
+      "details": {
+        "slash": [["頭","脚"]],
+        "blow": [["頭"],["脚"]],
+        "shoot": [["頭","脚"]],
+      }
   },
   206:{
       "name": "護竜オドガロン亜種",
@@ -133,7 +213,12 @@ window.monster_data = {
       "attributes": [[2],[1,3,4]],
       "status_effects": [1,2,3,4,5],
       "traps": [1,2,3],
-      "symbol_level": 2
+      "symbol_level": 2,
+      "details": {
+        "slash": [["頭","尾先"]],
+        "blow": [["頭"]],
+        "shoot": [["頭"]],
+      }
   },
   207:{
       "name": "護竜アンジャナフ亜種",
@@ -141,7 +226,12 @@ window.monster_data = {
       "attributes": [[4],[2,5]],
       "status_effects": [1,2,3,4,5],
       "traps": [1,2,3],
-      "symbol_level": 2
+      "symbol_level": 2,
+      "details": {
+        "slash": [["頭","鼻","翼","尻尾"]],
+        "blow": [["頭","鼻","尻尾"],["翼"]],
+        "shoot": [["尻尾"],["頭","鼻","胴体","翼"]],
+      }
   },
   208:{
       "name": "リオレウス",
@@ -149,7 +239,12 @@ window.monster_data = {
       "attributes": [[5],[3]],
       "status_effects": [2,3,4,5,6],
       "traps": [1,2,3],
-      "symbol_level": 2
+      "symbol_level": 2,
+      "details": {
+        "slash": [["頭"],["翼","脚","尻尾"]],
+        "blow": [["頭"],["翼","脚"]],
+        "shoot": [["頭"]],
+      }
   },
   209:{
       "name": "ドドブランゴ",
@@ -157,7 +252,12 @@ window.monster_data = {
       "attributes": [[1],[3]],
       "status_effects": [1,2,3,4,5,6],
       "traps": [1,2,3],
-      "symbol_level": 2
+      "symbol_level": 2,
+      "details": {
+        "slash": [["頭"],["胴体","前脚","後脚","尻尾"]],
+        "blow": [["頭"],["胴体"]],
+        "shoot": [["頭"]],
+      }
   },
   210:{
       "name": "グラビモス",
@@ -165,7 +265,12 @@ window.monster_data = {
       "attributes": [[2],[5]],
       "status_effects": [1,2,3,4,5,6],
       "traps": [1,2,3],
-      "symbol_level": 2
+      "symbol_level": 2,
+      "details": {
+        "slash": [["腹"]],
+        "blow": [["腹"]],
+        "shoot": [["腹"]],
+      }
   },
   301:{
       "name": "ゴア・マガラ",
@@ -173,7 +278,12 @@ window.monster_data = {
       "attributes": [[1],[3,5]],
       "status_effects": [5,6],
       "traps": [1,2],
-      "symbol_level": 3
+      "symbol_level": 3,
+      "details": {
+        "slash": [["触角"],["頭","首"]],
+        "blow": [["触角"],["頭","首"]],
+        "shoot": [["触角"],["頭"]],
+      }
   },
   302:{
       "name": "レ・ダウ",
@@ -181,7 +291,12 @@ window.monster_data = {
       "attributes": [[4],[2]],
       "status_effects": [1,4,5,6],
       "traps": [2,3],
-      "symbol_level": 3
+      "symbol_level": 3,
+      "details": {
+        "slash": [["頭"],["翼","尻尾"]],
+        "blow": [["頭"],["翼"]],
+        "shoot": [["頭"],["翼","尻尾"]],
+      }
   },
   303:{
       "name": "ウズ・トゥナ",
@@ -189,7 +304,12 @@ window.monster_data = {
       "attributes": [[3],[1]],
       "status_effects": [1,3,4,5,6],
       "traps": [1,2,3],
-      "symbol_level": 3
+      "symbol_level": 3,
+      "details": {
+        "slash": [["前脚"],["胴体","後脚","尻尾"]],
+        "blow": [["頭","前脚"],["胴体","後脚","尻尾"]],
+        "shoot": [["前脚"],["頭","後脚"]],
+      }
   },
   304:{
       "name": "ヌ・エグドラ",
@@ -197,7 +317,12 @@ window.monster_data = {
       "attributes": [[2],[5]],
       "status_effects": [1,2,4,6],
       "traps": [1,2],
-      "symbol_level": 3
+      "symbol_level": 3,
+      "details": {
+        "slash": [["頭"],["胴体","腕"]],
+        "blow": [["頭","胴体"],["腕"]],
+        "shoot": [["頭","腕"]],
+      }
   },
   305:{
       "name": "ジン・ダハド",
@@ -205,7 +330,12 @@ window.monster_data = {
       "attributes": [[1],[3]],
       "status_effects": [5,6],
       "traps": [1,3],
-      "symbol_level": 3
+      "symbol_level": 3,
+      "details": {
+        "slash": [["頭","首"],["前脚","後脚","尻尾"]],
+        "blow": [["頭","首"],["前脚","後脚","尻尾"]],
+        "shoot": [["頭"],["首","尻尾"]],
+      }
   },
   306:{
       "name": "アルシュベルド",
@@ -213,6 +343,11 @@ window.monster_data = {
       "attributes": [],
       "status_effects": [1,2,3,4,5,6],
       "traps": [1,2,3],
-      "symbol_level": 3
+      "symbol_level": 3,
+      "details": {
+        "slash": [["鎖"],["頭","尻尾"]],
+        "blow": [["鎖"],["頭"]],
+        "shoot": [["頭","鎖"]],
+      }
   }
 }

@@ -4,7 +4,7 @@ let current_filter = {
   weakest: 0,
   is_filtering: false
 };
-let detail_table_elems = []
+let data_table_elems = {}
 let is_event_already_add = false;
 
 window.onload = initMonsterView();
@@ -214,11 +214,11 @@ function addEventListenerForMonsterList() {
     let td;
     switch (event.target.nodeName) {
       case "TD":
-        setMonsterDetails(event.target);
+        setMonsterData(event.target);
         td = event.target;
         break;
       case "IMG":
-        setMonsterDetails(event.target.parentElement);
+        setMonsterData(event.target.parentElement);
         td = event.target.parentElement;
         break;
     }
@@ -240,47 +240,37 @@ function setMonsterIconColor(table, td) {
 
 // モンスター詳細リセット（非表示）
 function resetMonsterDetails() {
-  let table = document.getElementById("monster_detail_1");
-  table.style.display = "none";
-  table.nextElementSibling.style.display = "inline-block";
-  detail_table_elems[1] = {
-    is_selected: false,
-    table_elem: table,
-    icon_elem: table.nextElementSibling
-  }
-  table = document.getElementById("monster_detail_2");
-  table.style.display = "none";
-  table.nextElementSibling.style.display = "inline-block";
-  detail_table_elems[2] = {
-    is_selected: false,
-    table_elem: table,
-    icon_elem: table.nextElementSibling
+  let info_table = document.getElementById("monster_info");
+  let detail_table = document.getElementById("monster_detail");
+  info_table.style.display = detail_table.style.display = "none";
+  info_table.nextElementSibling.style.display = "inline-block";
+  data_table_elems = {
+    info_table_elem: info_table,
+    detail_table_elem: detail_table,
+    icon_elem: info_table.nextElementSibling
   }
 }
 
 // 対象モンスター情報表示
-function setMonsterDetails(elem) {
-  let select_detail_index = 0;
-  detail_table_elems.forEach((elems, index) => {
-    if (elems.is_selected || select_detail_index) { return; }
-    select_detail_index = index;
-    elems.is_selected = true;
-  })
-  if (!select_detail_index) {
-    select_detail_index = detail_table_elems.length - 1;
-  }
-  detail_table_elems[select_detail_index].is_selected = true;
+function setMonsterData(elem) {
+  let monster_info = monster_data[elem.dataset.id];
 
-  let table = detail_table_elems[select_detail_index].table_elem;
-  let icon = detail_table_elems[select_detail_index].icon_elem;
+  // モンスター情報表示
+  setMonsterInfo(monster_info);
+  // モンスター肉質表示
+  setMonsterDetail(monster_info.details);
+}
+
+// モンスター情報表示
+function setMonsterInfo(monster_info) {
+  let info_table = data_table_elems.info_table_elem;
+  let icon = data_table_elems.icon_elem;
+
+  info_table.style.display = "table";
   icon.style.display = "none";
-  table.style.display = "table";
-
-  while(table.firstChild){
-    table.removeChild(table.firstChild);
+  while(info_table.firstChild){
+    info_table.removeChild(info_table.firstChild);
   }
-
-  let monster_detail = monster_data[elem.dataset.id];
 
   // モンスター画像
   let tr = document.createElement("tr");
@@ -290,38 +280,74 @@ function setMonsterDetails(elem) {
   td.style.alignItems = "start";
   td.style.height = "296px";
   td.style.aspectRatio = 1;
-  td.style.background = `url(${monster_detail.img_path}) no-repeat center/cover`;
-  // バツアイコン
-  let i = document.createElement("i");
-  i.classList.add("fa-solid");
-  i.classList.add("fa-xmark");
-  i.style.borderRadius = "5px";
-  i.style.padding = "0 6.25px";
-  i.style.margin = "5px";
-  i.style.fontSize = "50px";
-  i.style.color = "red";
-  i.style.backgroundColor = "white";
-  i.addEventListener('click', () => {
-    table.style.display = "none";
-    icon.style.display = "inline-block";
-    detail_table_elems[select_detail_index].is_selected = false;
-  })
-  td.appendChild(i);
+  td.style.background = `url(${monster_info.img_path}) no-repeat center/cover`;
   tr.appendChild(td);
-  table.appendChild(tr);
+  info_table.appendChild(tr);
 
   // 弱点属性
   tr = document.createElement("tr");
-  tr.appendChild(getMonsterWeakAttributes(monster_detail));
-  table.appendChild(tr);
+  tr.appendChild(getMonsterWeakAttributes(monster_info));
+  info_table.appendChild(tr);
   // 状態異常
   tr = document.createElement("tr");
-  tr.appendChild(getMonsterWeakStatusEffects(monster_detail));
-  table.appendChild(tr);
+  tr.appendChild(getMonsterWeakStatusEffects(monster_info));
+  info_table.appendChild(tr);
   // 罠・アイテム
   tr = document.createElement("tr");
-  tr.appendChild(getMonsterWeakTraps(monster_detail));
-  table.appendChild(tr);
+  tr.appendChild(getMonsterWeakTraps(monster_info));
+  info_table.appendChild(tr);
+}
+
+// モンスター情報表示
+function setMonsterDetail(monster_detail) {
+  let table = data_table_elems.detail_table_elem;
+
+  table.style.display = "table";
+  while(table.firstChild){
+    table.removeChild(table.firstChild);
+  }
+
+  // モンスター肉質
+  Object.entries(monster_detail).forEach(([attack_type, details]) => {
+    let tr = document.createElement("tr");
+    let td = document.createElement("td");
+    let span = document.createElement("span");
+
+    let img = document.createElement("img");
+    img.src = attribute_data.attack_type[attack_type].img_path;
+    img.style.width = "46px";
+    span.appendChild(img);
+    td.appendChild(span);
+    tr.appendChild(td);
+
+    td = document.createElement("td");
+    span = document.createElement("span");
+    details.forEach((_details, index) => {
+      if (index) {
+        let i = document.createElement("i");
+        i.classList.add("fa-solid"); 
+        i.classList.add("fa-chevron-right"); 
+        i.style.fontSize = "20px";
+        span.appendChild(i);
+      }
+      let text = '';
+      _details.forEach(name => {
+        text += name + ','
+      })
+      text = text.slice(0, -1);
+
+      if (!text.length) { return; }
+
+      let p = document.createElement("p");
+      p.textContent = text;
+      span.appendChild(p);
+    })
+
+    td.appendChild(span);
+    tr.appendChild(td);
+    table.appendChild(tr);
+  });
+
 }
 
 // 弱点属性

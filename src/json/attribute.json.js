@@ -1,4 +1,15 @@
 window.attribute_data = {
+    "attack_type": {
+        "slash": {
+            "img_path": "../../src/img/icon/slash.png",
+        },
+        "blow": {
+            "img_path": "../../src/img/icon/blow.png",
+        },
+        "shoot": {
+            "img_path": "../../src/img/icon/shoot.png",
+        },
+    },
     "attributes": {
         1: {
             "img_path": "../../src/img/icon/fire.png",
