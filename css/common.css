@@ -33,8 +33,9 @@ td > span {
   margin: 20px 10px 0 10px;
 }
 .monster-detail-table > tr > td:has(p) {
+  min-width: 246px;
   width: auto;
-  padding: 10px;
+  padding: 15px;
 }
 .monster-detail-table > tr > td > span > p {
   margin: 0;
