@@ -35,6 +35,14 @@ td > span {
 .monster-detail-table > tr > td:has(p) {
   width: 246px;
 }
+.monster-detail-table > tr > td > span > p {
+  margin: 0;
+  font-size: 30px;
+}
+.monster-detail-table > tr > td > span > i {
+  margin: 0 10px;
+  font-size: 20px;
+}
 .flex-attribute-wrap {
   display: flex;
   flex-wrap: wrap;

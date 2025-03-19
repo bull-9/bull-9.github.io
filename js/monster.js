@@ -326,8 +326,7 @@ function setMonsterDetail(monster_detail) {
       if (index) {
         let i = document.createElement("i");
         i.classList.add("fa-solid"); 
-        i.classList.add("fa-chevron-right"); 
-        i.style.fontSize = "20px";
+        i.classList.add("fa-chevron-right");
         span.appendChild(i);
       }
       let text = '';
@@ -358,8 +357,7 @@ function getMonsterWeakAttributes(monster_detail) {
     if (index) {
       let i = document.createElement("i");
       i.classList.add("fa-solid"); 
-      i.classList.add("fa-chevron-right"); 
-      i.style.fontSize = "20px";
+      i.classList.add("fa-chevron-right");
       span.appendChild(i);
     }
     attributes.forEach(attribute => {
