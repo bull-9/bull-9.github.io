@@ -79,8 +79,11 @@ td > span {
 }
 
 @media screen and (orientation: landscape) {
-  .attribute-list, .scrollable-list {
-    max-width: calc(100dvw - 680px);
+  .attribute-list{
+    max-width: max(500px, calc(100dvw - 780px));
+  }
+  .scrollable-list {
+    max-width: calc(100dvw - 780px);
   }
   .flex-view {
     display: flex;
