@@ -349,5 +349,18 @@ window.monster_data = {
         "blow": [["鎖"],["頭"]],
         "shoot": [["頭","鎖"]],
       }
+  },
+  401:{
+      "name": "ゾ・シア",
+      "img_path": "../../src/img/monster/401.jpg",
+      "attributes": [[5]],
+      "status_effects": [1,2,3,4,5],
+      "traps": [3],
+      "symbol_level": 0,
+      "details": {
+        "slash": [["翼腕"],["頭","前脚"]],
+        "blow": [["翼腕"],["頭","前脚"]],
+        "shoot": [["頭"],["翼腕"]],
+      }
   }
 }
