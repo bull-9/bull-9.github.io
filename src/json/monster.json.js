@@ -244,8 +244,8 @@ window.monster_data = {
       essence: {
         red: ["頭"],
         white: ["翼", "脚"],
-        orange: [],
-        green: ["首", "胴", "尾"],
+        orange: ["胴"],
+        green: ["首", "尾"],
       },
       weaks: {
         slash: [["尾"], ["頭", "首", "胴"]],
