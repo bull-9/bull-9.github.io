@@ -232,6 +232,8 @@ function addEventListenerForMonsterList() {
         setMonsterData(event.target.parentElement);
         td = event.target.parentElement;
         break;
+      default:
+        return;
     }
     setMonsterIconColor(table, td);
   });
@@ -286,12 +288,20 @@ function setMonsterInfo(monster_info) {
   // モンスター画像
   let tr = document.createElement("tr");
   let td = document.createElement("td");
+  let span = document.createElement("span");
+  let p = document.createElement("p");
   td.style.display = "flex";
-  td.style.justifyContent = "end";
-  td.style.alignItems = "start";
+  td.style.justifyContent = "flex-end";
+  td.style.flexDirection = "column";
   td.style.height = "296px";
   td.style.aspectRatio = 1;
   td.style.background = `url(${monster_info.img_path}) no-repeat center/cover`;
+  span.textContent = monster_info.name;
+  span.style.backgroundColor = "#ffffffcc";
+  span.style.padding = "10px";
+  span.style.fontSize = "30px";
+  span.style.whiteSpace = "nowrap";
+  td.appendChild(span);
   tr.appendChild(td);
   info_table.appendChild(tr);
 
