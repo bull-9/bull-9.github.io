@@ -299,6 +299,7 @@ function setMonsterInfo(monster_info) {
   span.textContent = monster_info.name;
   span.style.backgroundColor = "#ffffffcc";
   span.style.padding = "10px";
+  span.style.marginBottom = "-2px";
   span.style.fontSize = "30px";
   span.style.whiteSpace = "nowrap";
   td.appendChild(span);
