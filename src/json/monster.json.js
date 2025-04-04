@@ -644,4 +644,25 @@ window.monster_data = {
       },
     },
   },
+  30: {
+    name: "タマミツネ",
+    img_path: "../../src/img/monster/307.jpg",
+    attributes: [[3], [5]],
+    status_effects: [1, 2, 3, 4, 5, 6],
+    traps: [1, 2, 3],
+    symbol_level: 3,
+    details: {
+      essence: {
+        red: ["頭", "背ビレ"],
+        white: ["後脚", "尾"],
+        orange: ["前脚", "胴"],
+        green: [],
+      },
+      weaks: {
+        slash: [["頭"], ["変化時 爪,前脚"]],
+        blow: [["頭"], ["変化時 爪,前脚"]],
+        shoot: [["頭", "背ビレ"]],
+      },
+    },
+  },
 };
