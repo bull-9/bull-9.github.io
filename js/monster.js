@@ -168,15 +168,27 @@ function setMonsterList() {
 
     if (!(col_cnt % 5)) {
       tr = document.createElement("tr");
+      tr.style.display = "flex";
     }
     let td = document.createElement("td");
     td.dataset.id = key;
     td.dataset.symbol_level = monster_data[key].symbol_level;
-    td.style.height = "146px";
-    let img = document.createElement("img");
-    img.src = monster_data[key].img_path;
-    img.style.height = "100%";
-    td.appendChild(img);
+    td.style.height = td.style.width = "145px";
+    td.style.display = "flex";
+    td.style.alignItems = "flex-end";
+    td.style.background = `url(${monster_data[key].img_path}) no-repeat center/cover`;
+
+    let span = document.createElement("span");
+    let font_size = 120 / monster_data[key].name.length;
+    span.textContent = monster_data[key].name;
+    span.style.backgroundColor = "#ffffffcc";
+    span.style.padding = "10px";
+    span.style.marginBottom = "-2px";
+    span.style.fontSize = `clamp(12.7px, ${font_size}px, 20px)`;
+    span.style.width = "100%";
+    span.style.height = "25px";
+    td.appendChild(span);
+
     tr.appendChild(td);
 
     col_cnt++;
@@ -289,7 +301,6 @@ function setMonsterInfo(monster_info) {
   let tr = document.createElement("tr");
   let td = document.createElement("td");
   let span = document.createElement("span");
-  let p = document.createElement("p");
   td.style.display = "flex";
   td.style.justifyContent = "flex-end";
   td.style.flexDirection = "column";
