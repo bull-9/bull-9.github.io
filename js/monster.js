@@ -184,7 +184,7 @@ function setMonsterList() {
     span.style.backgroundColor = "#ffffffcc";
     span.style.padding = "10px";
     span.style.marginBottom = "-2px";
-    span.style.fontSize = `clamp(12.7px, ${font_size}px, 20px)`;
+    span.style.fontSize = `clamp(12.5px, ${font_size}px, 20px)`;
     span.style.width = "100%";
     span.style.height = "25px";
     td.appendChild(span);
