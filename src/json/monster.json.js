@@ -686,7 +686,7 @@ window.monster_data = {
       },
     },
   },
-  31: {
+  32: {
     name: "ラギアクルス",
     img_path: "../../src/img/monster/309.jpg",
     attributes: [[1], [4, 5]],
