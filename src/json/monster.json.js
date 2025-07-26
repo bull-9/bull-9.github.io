@@ -665,4 +665,46 @@ window.monster_data = {
       },
     },
   },
+  31: {
+    name: "セルレギオス",
+    img_path: "../../src/img/monster/308.jpg",
+    attributes: [[3], [4]],
+    status_effects: [1, 2, 3, 4, 5, 6],
+    traps: [1, 2, 3],
+    symbol_level: 3,
+    details: {
+      essence: {
+        red: ["頭", "首", "脚"],
+        white: ["翼"],
+        orange: ["胴"],
+        green: ["尾"],
+      },
+      weaks: {
+        slash: [["脚"], ["頭"]],
+        blow: [["頭"], ["脚"]],
+        shoot: [["脚", "尾"]],
+      },
+    },
+  },
+  31: {
+    name: "ラギアクルス",
+    img_path: "../../src/img/monster/309.jpg",
+    attributes: [[1], [4, 5]],
+    status_effects: [1, 4, 5, 6],
+    traps: [1, 2, 3],
+    symbol_level: 3,
+    details: {
+      essence: {
+        red: ["頭"],
+        white: ["胴", "脚"],
+        orange: ["首", "胸", "尾"],
+        green: ["背"],
+      },
+      weaks: {
+        slash: [["胸"], ["頭", "背"]],
+        blow: [["頭", "胸", "背"]],
+        shoot: [["頭"]],
+      },
+    },
+  },
 };
